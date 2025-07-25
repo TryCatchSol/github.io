@@ -62,3 +62,32 @@ button:hover {
 .copyBtn:hover {
   background-color: #0062cc;
 }
+.find-replace {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.find-replace input {
+  width: 140px;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.find-replace button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  background-color: #f39c12;
+  color: white;
+  cursor: pointer;
+}
+
+.find-replace button:hover {
+  background-color: #e67e22;
+}
+
