@@ -42,11 +42,18 @@ function replaceAll() {
     return;
   }
 
-  // If multiple characters, remove each one
   let result = input;
-  for (const char of find) {
-    const regex = new RegExp(char.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+
+  // If user enters more than 1 character and it's a full word (like 'Hello'), replace whole word
+  if (find.length > 1 && !find.includes(' ')) {
+    const regex = new RegExp(find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
     result = result.replace(regex, replace);
+  } else {
+    // Replace each character individually (like *, _ etc.)
+    for (const char of find) {
+      const regex = new RegExp(char.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+      result = result.replace(regex, replace);
+    }
   }
 
   document.getElementById("outputText").value = result;
