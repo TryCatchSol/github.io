@@ -11,7 +11,6 @@ function calculateAge() {
   const dob = new Date(dobValue);
   const today = new Date();
 
-  // ✅ Manual range validation
   const minDate = new Date("1000-01-01");
   if (dob < minDate || dob > today) {
     result.textContent = "Please enter a date between 01-01-1000 and today.";
@@ -39,15 +38,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const dobInput = document.getElementById("dob");
   const panchangLink = document.getElementById("panchang-link");
 
-  // Set today's date as max
   const today = new Date().toISOString().split("T")[0];
   dobInput.setAttribute("max", today);
 
-  console.log("Script loaded");
-
   dobInput.addEventListener("change", function () {
-    console.log("DOB changed:", this.value);
-
     const dob = this.value;
     const parts = dob.split("-");
     if (parts.length === 3) {
