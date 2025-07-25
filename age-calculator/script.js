@@ -1,16 +1,26 @@
 function calculateAge() {
-  const dob = document.getElementById("dob").value;
-  if (!dob) {
-    alert("Please select your date of birth.");
+  const dobInput = document.getElementById("dob");
+  const result = document.getElementById("result");
+  const dobValue = dobInput.value;
+
+  if (!dobValue) {
+    result.textContent = "Please enter your date of birth.";
     return;
   }
 
-  const birthDate = new Date(dob);
+  const dob = new Date(dobValue);
   const today = new Date();
 
-  let years = today.getFullYear() - birthDate.getFullYear();
-  let months = today.getMonth() - birthDate.getMonth();
-  let days = today.getDate() - birthDate.getDate();
+  // ✅ Manual range validation
+  const minDate = new Date("1000-01-01");
+  if (dob < minDate || dob > today) {
+    result.textContent = "Please enter a date between 01-01-1000 and today.";
+    return;
+  }
+
+  let years = today.getFullYear() - dob.getFullYear();
+  let months = today.getMonth() - dob.getMonth();
+  let days = today.getDate() - dob.getDate();
 
   if (days < 0) {
     months--;
@@ -22,8 +32,7 @@ function calculateAge() {
     months += 12;
   }
 
-  const result = `🎂 You are ${years} years, ${months} months, and ${days} days old.`;
-  document.getElementById("result").innerText = result;
+  result.textContent = `You are ${years} years, ${months} months, and ${days} days old.`;
 }
 document.addEventListener("DOMContentLoaded", function () {
   // 1. Set today's date as max for DOB input
