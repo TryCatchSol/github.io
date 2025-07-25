@@ -2,23 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Age Calculator</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <h1>🧮 Age Calculator</h1>
+
     <label for="dob">Select your Date of Birth:</label>
     <input type="date" id="dob" name="dob" min="1000-01-01" required>
+
     <button onclick="calculateAge()">Calculate Age</button>
 
     <div id="result" class="result"></div>
-    <a id="panchang-link" href="#" target="_blank" style="margin-top:10px;">
-    🔗 View Panchang for selected date
-  </a>
+
+    <p>
+      <a id="panchang-link" href="#" target="_blank" style="display:none; margin-top:10px;">
+        🔗 View Panchang for selected date
+      </a>
+    </p>
   </div>
 
+  <!-- ✅ Ensure script is linked last -->
   <script src="script.js"></script>
 </body>
 </html>
