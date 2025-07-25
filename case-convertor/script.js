@@ -20,7 +20,7 @@ function convertCase(type) {
         c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()
       ).join('');
       break;
-  }
+            }
 
   document.getElementById("outputText").value = result;
 }
@@ -31,4 +31,21 @@ function copyToClipboard() {
   output.setSelectionRange(0, 99999); // For mobile
   document.execCommand("copy");
   alert("Converted text copied to clipboard!");
+                          }
+function replaceAll() {
+  const input = document.getElementById("inputText").value;
+  const find = document.getElementById("findText").value;
+  const replace = document.getElementById("replaceText").value;
+
+  if (!find) {
+    alert("Please enter text to find.");
+    return;
+  }
+
+  const regex = new RegExp(find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'); // escape special chars
+  const result = input.replace(regex, replace);
+
+  document.getElementById("outputText").value = result;
 }
+
+
