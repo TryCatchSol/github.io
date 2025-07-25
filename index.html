@@ -1,63 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="TryCatchSol — Web tools, CRUD demos, and simple utilities.">
-  <title>Try Catch Solutions</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>My Tools Index</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      background: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    select {
+      font-size: 16px;
+      margin-bottom: 20px;
+      padding: 6px;
+    }
+
+    .tool-section {
+      margin-bottom: 25px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    }
+
+    .tool-section h2 {
+      margin-top: 0;
+    }
+
+    .translated-text {
+      font-style: italic;
+      color: #333;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
 
-  <header>
-    <h1>Try Catch Solutions</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="tools.html">Tools</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+  <h1>🧰 My Utility Toolbox</h1>
 
-  <main>
-    <h2>Welcome to Try Catch Solutions Page</h2>
-    <p>This site hosts free tools and useful web utilities Concepted, \n Designed and built by Try Catch Solutions, \n designed with simplicity and functionality in mind.</p>
-<p> The First Utility is a Simple Age Calculator, \n You Enter a Date Between today and 01-01-1000</p>
-    <section>
-      <h3>🛠️ Featured Tools</h3>
-      <ul>
-        <li><a href="#">Simple Single Page HTML Utilities </a></li>
-        <li><a href="#">Text Case Converter</a></li>
-        <div class="tool-description">
-  <h2>🆎 Case Converter + Smart Find & Replace</h2>
-  <p>
-    This utility offers two powerful features in one simple interface:
-  </p>
-  <ul>
-    <li><strong>🔠 Text Case Conversion:</strong> Convert any block of text into <em>UPPERCASE</em>, <em>lowercase</em>, <em>Title Case</em>, <em>Sentence case</em>, or <em>Toggle Case</em>.</li>
-    <li><strong>🪄 Smart Find & Replace:</strong> Replace a <em>specific word</em> like <code>Hello</code> with <code>Hi</code>, or remove <em>multiple unwanted characters</em> like <code>*</code> and <code>_</code> — all in a single step!</li>
-  </ul>
-  <p>
-    This tool is designed to clean and format long texts (e.g., WhatsApp forwards, articles, etc.) with minimal effort.
-  </p>
-
-  <div style="margin-top: 10px;">
-    🌐 <strong>Translate:</strong> View this description in your language:
-    <button onclick="translateTo('hi')">हिन्दी</button>
-    <button onclick="translateTo('mr')">मराठी</button>
+  <div>
+    🌐 <strong>Translate Page Description:</strong>
+    <select onchange="translatePage(this.value)">
+      <option value="">-- Select Language --</option>
+      <option value="hi">Hindi</option>
+      <option value="mr">Marathi</option>
+    </select>
   </div>
 
-  <p id="translatedText" style="margin-top: 10px; font-style: italic;"></p>
-</div>
+  <div id="translated" class="translated-text"></div>
 
-        <li><a href="#">Date Calculator</a></li>
-      </ul>
-    </section>
-  </main>
+  <div class="tool-section">
+    <h2>📅 Age Calculator</h2>
+    <p>
+      Enter your birthdate and instantly calculate your age in years, months, and days.
+      Useful for filling forms or verifying age with precision.
+      <br>
+      🔗 <a href="age-calculator/index.html">Open Age Calculator</a>
+    </p>
+  </div>
 
-  <footer>
-    © 2025 TryCatchSol • Hosted on GitHub Pages
-  </footer>
+  <div class="tool-section">
+    <h2>🆎 Case Converter + Smart Replace</h2>
+    <p>
+      Convert any text into UPPERCASE, lowercase, Title Case, and more. Also includes a powerful Find & Replace tool:
+      you can remove or replace unwanted characters (like *, _) or entire words like "Hello" with "Hi".
+      <br>
+      🔗 <a href="case-converter/index.html">Open Case Converter</a>
+    </p>
+  </div>
+
+  <!-- You can add more tools here as new ones are built -->
+
+  <script>
+    function translatePage(lang) {
+      const description = `
+        🧰 My Utility Toolbox includes:
+        1. Age Calculator - Calculate age from your birth date.
+        2. Case Converter + Smart Replace - Convert text cases and perform smart find-and-replace operations.
+        New tools will be added here as they are developed.
+      `;
+      const encoded = encodeURIComponent(description.trim());
+
+      fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${lang}&dt=t&q=${encoded}`)
+        .then(res => res.json())
+        .then(data => {
+          const translated = data[0].map(item => item[0]).join(" ");
+          document.getElementById("translated").innerText = translated;
+        })
+        .catch(() => {
+          document.getElementById("translated").innerText = "Translation failed. Please try again.";
+        });
+    }
+  </script>
 
 </body>
 </html>
