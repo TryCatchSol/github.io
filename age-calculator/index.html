@@ -10,7 +10,7 @@
   <div class="container">
     <h1>🧮 Age Calculator</h1>
     <label for="dob">Select your Date of Birth:</label>
-    <input type="date" id="dob" />
+    <input type="date" id="dob" name="dob" min="1000-01-01" required>
     <button onclick="calculateAge()">Calculate Age</button>
 
     <div id="result" class="result"></div>
