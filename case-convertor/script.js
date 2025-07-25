@@ -42,10 +42,15 @@ function replaceAll() {
     return;
   }
 
-  const regex = new RegExp(find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'); // escape special chars
-  const result = input.replace(regex, replace);
+  // If multiple characters, remove each one
+  let result = input;
+  for (const char of find) {
+    const regex = new RegExp(char.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+    result = result.replace(regex, replace);
+  }
 
   document.getElementById("outputText").value = result;
 }
+
 
 
