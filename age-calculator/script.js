@@ -52,9 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const panchangLink = document.getElementById("panchang-link");
     if (panchangLink) {
-      panchangLink.href = panchangURL;
-      panchangLink.textContent = `🔗 View Panchang for ${d}-${m}-${y}`;
-    }
+  panchangLink.href = panchangURL;
+  panchangLink.textContent = `🔗 View Panchang for ${d}-${m}-${y}`;
+  panchangLink.style.display = "inline-block"; // ✅ Show the hidden link
+      }
   }
 });
 
