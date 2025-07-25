@@ -34,29 +34,33 @@ function calculateAge() {
 
   result.textContent = `You are ${years} years, ${months} months, and ${days} days old.`;
 }
+
 document.addEventListener("DOMContentLoaded", function () {
-  // 1. Set today's date as max for DOB input
   const dobInput = document.getElementById("dob");
+  const panchangLink = document.getElementById("panchang-link");
+
+  // Set today's date as max
   const today = new Date().toISOString().split("T")[0];
   dobInput.setAttribute("max", today);
 
-  // 2. Panchang Link update based on selected date
+  console.log("Script loaded");
+
   dobInput.addEventListener("change", function () {
-  const dob = this.value;
-  const parts = dob.split("-");
-  if (parts.length === 3) {
-    const y = parts[0];
-    const m = parts[1];
-    const d = parts[2];
-    const panchangURL = `https://www.drikpanchang.com/?date=${d}-${m}-${y}`;
+    console.log("DOB changed:", this.value);
 
-    const panchangLink = document.getElementById("panchang-link");
-    if (panchangLink) {
-  panchangLink.href = panchangURL;
-  panchangLink.textContent = `🔗 View Panchang for ${d}-${m}-${y}`;
-  panchangLink.style.display = "inline-block"; // ✅ Show the hidden link
+    const dob = this.value;
+    const parts = dob.split("-");
+    if (parts.length === 3) {
+      const y = parts[0];
+      const m = parts[1];
+      const d = parts[2];
+      const panchangURL = `https://www.drikpanchang.com/?date=${d}-${m}-${y}`;
+
+      if (panchangLink) {
+        panchangLink.href = panchangURL;
+        panchangLink.textContent = `🔗 View Panchang for ${d}-${m}-${y}`;
+        panchangLink.style.display = "inline-block";
       }
-  }
+    }
+  });
 });
-
-
