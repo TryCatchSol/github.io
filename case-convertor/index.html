@@ -11,6 +11,11 @@
     <h1>Case Converter Utility</h1>
 
     <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+    <div class="find-replace">
+  <input type="text" id="findText" placeholder="Find what" />
+  <input type="text" id="replaceText" placeholder="Replace with" />
+  <button onclick="replaceAll()">Replace All</button>
+    </div>
 
     <div class="buttons">
       <button onclick="convertCase('upper')">UPPERCASE</button>
