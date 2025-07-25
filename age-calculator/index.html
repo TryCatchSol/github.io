@@ -2,29 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Age Calculator</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Test Age Calculator</title>
 </head>
 <body>
-  <div class="container">
-    <h1>🧮 Age Calculator</h1>
+  <h1>Test Age Calculator</h1>
 
-    <label for="dob">Select your Date of Birth:</label>
-    <input type="date" id="dob" name="dob" min="1000-01-01" required>
+  <input type="date" id="dob">
+  <button onclick="calculateAge()">Calculate</button>
 
-    <button onclick="calculateAge()">Calculate Age</button>
+  <div id="result"></div>
 
-    <div id="result" class="result"></div>
+  <script>
+    function calculateAge() {
+      const dobInput = document.getElementById("dob");
+      const result = document.getElementById("result");
+      const dobValue = dobInput.value;
 
-    <p>
-      <a id="panchang-link" href="#" target="_blank" style="display:none; margin-top:10px;">
-        🔗 View Panchang for selected date
-      </a>
-    </p>
-  </div>
+      if (!dobValue) {
+        result.textContent = "Please enter your date of birth.";
+        return;
+      }
 
-  <!-- ✅ Ensure script is linked last -->
-  <script src="script.js"></script>
+      const dob = new Date(dobValue);
+      const today = new Date();
+
+      let years = today.getFullYear() - dob.getFullYear();
+      let months = today.getMonth() - dob.getMonth();
+      let days = today.getDate() - dob.getDate();
+
+      if (days < 0) {
+        months--;
+        days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+      }
+
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      result.textContent = `You are ${years} years, ${months} months, and ${days} days old.`;
+    }
+  </script>
 </body>
 </html>
