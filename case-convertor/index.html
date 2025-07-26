@@ -4,17 +4,132 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Case Converter Utility</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      background: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+
+    .find-replace {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .find-replace input {
+      flex: 1;
+      padding: 8px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .find-replace button {
+      padding: 8px 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .find-replace button:hover {
+      background-color: #0056b3;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .buttons button {
+      flex: 1 1 calc(50% - 10px);
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .buttons button:hover {
+      background-color: #218838;
+    }
+
+    .copyBtn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #ffc107;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .copyBtn:hover {
+      background-color: #e0a800;
+    }
+
+    .footer-link {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 16px;
+    }
+
+    .footer-link a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    .footer-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>Case Converter Utility</h1>
+    <h1>🆎 Case Converter Utility</h1>
 
     <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+
     <div class="find-replace">
-  <input type="text" id="findText" placeholder="Find what" />
-  <input type="text" id="replaceText" placeholder="Replace with" />
-  <button onclick="replaceAll()">Replace All</button>
+      <input type="text" id="findText" placeholder="Find what" />
+      <input type="text" id="replaceText" placeholder="Replace with" />
+      <button onclick="replaceAll()">Replace All</button>
     </div>
 
     <div class="buttons">
@@ -29,7 +144,11 @@
 
     <button onclick="copyToClipboard()" class="copyBtn">📋 Copy to Clipboard</button>
   </div>
-<a href="https://trycatchsol.github.io/github.io/">🏠 Back to Main Index</a>
+
+  <div class="footer-link">
+    <a href="https://trycatchsol.github.io/github.io/">🏠 Back to Main Index</a>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
