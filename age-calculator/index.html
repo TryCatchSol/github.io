@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Age Calculator</title>
   <style>
     body {
@@ -17,25 +18,42 @@
       margin-bottom: 20px;
     }
 
-    label, input, button {
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    }
+
+    label {
       display: block;
       font-size: 16px;
-      margin: 10px 0;
-      width: 100%;
-      max-width: 400px;
+      margin-top: 10px;
+      margin-bottom: 5px;
     }
 
     input[type="date"] {
+      width: 100%;
+      max-width: 400px;
       padding: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 15px;
     }
 
     button {
+      display: block;
+      width: 100%;
+      max-width: 400px;
       padding: 10px;
+      font-size: 16px;
       background-color: #007bff;
       color: white;
       border: none;
       border-radius: 6px;
       cursor: pointer;
+      margin-bottom: 10px;
     }
 
     button:hover {
@@ -62,13 +80,6 @@
 
     .footer-link a:hover {
       text-decoration: underline;
-    }
-
-    .container {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.05);
     }
   </style>
 </head>
