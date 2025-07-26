@@ -28,18 +28,21 @@
   <main>
     <h2>Contact Us</h2>
     <p>This is a placeholder contact form. You can connect via email: <strong><a href="mailto:ssbwawari@gmail.com">ssbawari@gmail.com</a></strong></p>
-    <form>
-      <label>Name:</label><br />
-      <input type="text" name="name" /><br /><br />
-      
-      <label>Email:</label><br />
-      <input type="email" name="email" /><br /><br />
-      
-      <label>Message:</label><br />
-      <textarea rows="4" cols="40" name="message"></textarea><br /><br />
-      
-      <button type="submit" disabled>Send (coming soon)</button>
-    </form>
+    <section aria-labelledby="contact-form-title">
+  <h2 id="contact-form-title">Contact Us</h2>
+  <form onsubmit="return false;">
+    <label for="name">Name:</label><br />
+    <input type="text" name="name" id="name" required /><br /><br />
+    
+    <label for="email">Email:</label><br />
+    <input type="email" name="email" id="email" required /><br /><br />
+    
+    <label for="message">Message:</label><br />
+    <textarea rows="4" cols="40" name="message" id="message" required></textarea><br /><br />
+    
+    <button type="submit" disabled>Send (coming soon)</button>
+  </form>
+</section>
   </main>
 
   <footer>
