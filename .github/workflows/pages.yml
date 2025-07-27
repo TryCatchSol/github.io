@@ -27,10 +27,11 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Upload static files
-        id: upload                    # ✅ IMPORTANT: This ID must be added
+        id: upload
+        if: always()                       # ✅ This line ensures upload runs
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./                   # or ./age-calculator if your files are there
+          path: ./                         # Or ./age-calculator if your files are inside that folder
 
       - name: Deploy to GitHub Pages
         id: deployment
