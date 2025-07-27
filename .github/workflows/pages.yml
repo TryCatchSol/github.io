@@ -26,10 +26,11 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload site files
+      - name: Upload static files
+        id: upload                    # ✅ IMPORTANT: This ID must be added
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./   # Change this to ./age-calculator if your index.html is inside that
+          path: ./                   # or ./age-calculator if your files are there
 
       - name: Deploy to GitHub Pages
         id: deployment
